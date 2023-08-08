@@ -1,0 +1,23 @@
+1) Assign table name as Flag
+
+create table Flag as
+select BN.patient_id,BN.membership_id,BN.groupid,BN.person_nbr,
+BD.Primary_Phone_NBR,BD.Phone2_NBR,BD.Phone3_NBR
+from BN
+left join BD
+on (BN.patient_id=BD.patient_id)and(BN.membership_id=BD.membership_id)and(BN.groupid=BD.groupid)and(BN.person_nbr = BD.person_nbr)
+
+
+2)-----adding new column as cell_flag to Flag table
+
+ALTER TABLE Flag
+ADD cell_flag varchar(255);
+
+3)-----update P flag where Primary_phone_num = "c"-----
+
+update Flag
+set cell_flag= "P" 
+where Primary_Phone_NBR =="C" 
+
+
+
