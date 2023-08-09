@@ -1,0 +1,129 @@
+1 create table BN(
+  patient_id int,
+  membership_id int,
+  groupid varchar(250),
+  person_nbr int)
+
+
+
+2.INSERT INTO BN(
+  patient_id,membership_id,groupid,person_nbr)
+ VALUES
+(10001,123456891,"Upperbody",2386.041022),
+(10002,123456891,"Upperbody",7219.568003),
+(10003,123456891,"Upperbody",1110.167181),
+(10004,123456891,"Upperbody",4522.639998),
+(10005,123456891,"Upperbody",7305.19298),
+(10006,123456891,"Upperbody",6407.115439),
+(10007,123456891,"Upperbody",4824.677332),
+(10008,123456891,"Upperbody",4880.812031),
+(10009,123456891,"Upperbody",9920.119179),
+(10010,123456891,"Upperbody",7840.809171),
+(10011,	123456891,"Upperbody",529.0634881),
+(10012,	123456891,"Upperbody",7694.738745),
+(10013,	123456891,"Upperbody",5513.347213),
+(10014,	123456891,"Upperbody",5169.103457),
+(10015,	123456891,"Upperbody",1139.017797),
+(10016,	123456891,"Upperbody",8733.449889),
+(10017,	123456891,"Upperbody",4827.91525),
+(10018,	123456891,"Upperbody",6343.44681),
+(10019,	123456891,"Upperbody",2736.502665),
+(10020,	123456891,"Upperbody",7582.624916),
+(10021,	123456891,"Upperbody",8208.697462),
+(10022,	123456891,"Upperbody",7480.909911),
+(10023,	123456891,"Upperbody",7795.088277),
+(10024,	123456891,"Upperbody",1675.716539),
+(10025,	123456891,"Upperbody",5531.264948),
+(10026,	123456891,"Upperbody",4456.870224),
+(10027,	123456891,"Upperbody",9339.910577),
+(10028,	123456891,"Upperbody",9582.562571),
+(10029,	123456891,"Upperbody",4514.846033),
+(10030,	123456891,"Upperbody",7528.4154)
+
+
+
+
+3)
+create table BD(
+  patient_id int,
+  membership_id int,
+  groupid varchar(250),
+  person_nbr int,
+  Primary_Phone_NBR varchar(250),
+  Phone2_NBR varchar(250),
+  Phone3_NBR vrchar (250)
+)
+
+
+4)ROWS ADDING IN BD TABLE
+
+INSERT INTO BD
+(patient_id,membership_id,groupid,person_nbr,Primary_Phone_NBR,Phone2_NBR,Phone3_NBR)
+VALUES
+(10001	,123456891 ,"Upperbody"	 ,2386.041022	,   "C"	,"O",	"C"),
+(10002	,123456891	,"Upperbody"	,7219.568003,	"C"	,"O",	"C"),
+(10003	,123456891	,"Upperbody"	,1110.167181,	"C"	,"O",	"C"),
+(10004	,123456891	,"Upperbody"	,4522.639998,	"C"	,"O",	"C"),
+(10005	,123456891	,"Upperbody"	,7305.19298 ,	"C"	,"O",	"C"),
+(10006	,123456891	,"Upperbody"	,6407.115439,	"C"	,"O",	"C"),
+(10007	,123456891	,"Upperbody"	,4824.677332,	"C"	,"O",	"C"),
+(10008	,123456891	,"Upperbody"	,4880.812031,	"C"	,"O",	"C"),
+(10009	,123456891	,"Upperbody"	,9920.119179,	"C"	,"O",	"C"),
+(10010	,123456891	,"Upperbody"	,7840.809171,	"C"	,"O",	"C"),
+(10011	,123456891      ,"Upperbody"	,2386.041022,   "H"	,"O",	"C"),
+(10012	,123456891	,"Upperbody"	,7219.568003,	"H"	,"O",	"C"),
+(10013	,123456891	,"Upperbody"	,1110.167181,	"H"	,"O",	"C"),
+(10014	,123456891	,"Upperbody"	,4522.639998,	"H"	,"",	"C"),
+(10015	,123456891	,"Upperbody"	,7305.19298 ,	"H"	,"",	"C"),
+(10016	,123456891	,"Upperbody"	,6407.115439,	"H"	,"",	"C"),
+(10017	,123456891	,"Upperbody"	,4824.677332,	"H"	,"O",	"C"),
+(10018	,123456891	,"Upperbody"	,4880.812031,	""	,"O",	"C"),
+(10019	,123456891	,"Upperbody"	,9920.119179,	""	,"O",	"C"),
+(10020	,123456891	,"Upperbody"	,7840.809171,	""	,"O",	"C"),
+(10021	,123456891      ,"Upperbody"	,2386.041022,   ""	,"O",	"C"),
+(10022	,123456891	,"Upperbody"	,7219.568003,	""	,"O",	"C"),
+(10023	,123456891	,"Upperbody"	,1110.167181,	""	,"O",	"C"),
+(10024	,123456891	,"Upperbody"	,4522.639998,	""	,"O",	"C"),
+(10025	,123456891	,"Upperbody"	,7305.19298 ,	"O"	,"O",	"C"),
+(10026	,123456891	,"Upperbody"	,6407.115439,	"O"	,"O",	"C"),
+(10027	,123456891	,"Upperbody"	,4824.677332,	"O"	,"C",	""),
+(10028	,123456891	,"Upperbody"	,4880.812031,	"O"	,"C",	""),
+(10029	,123456891	,"Upperbody"	,9920.119179,	"O"	,"C",	""),
+(10030	,123456891	,"Upperbody"	,7840.809171,	"O"	,"C",	"")
+
+
+4) merge BN and BD tables
+
+create table BBB1 as
+select
+BN.patient_id,BN.membership_id,BN.groupid,BN.person_nbr,BD.Primary_Phone_NBR,BD.Phone2_NBR,BD.Phone3_NBR
+from BN
+left join BD 
+on (BN.patient_id=BD.patient_id) and (BN.membership_id=BD.membership_id) and (BN.groupid=BD.groupid) and (BN.person_nbr=BD.person_nbr)
+
+
+5) adding cell flag column to BD table
+
+ALTER TABLE Bd
+ADD cell_flag varchar(255);
+
+6)update cell flags 
+update BBB1
+set cell_flag="P"
+where ("Primary_Phone_NBR"=="C") 
+
+update BBB1
+set cell_flag="S"
+where ("Primary_Phone_NBR"!="C") and ("Phone2_NBR"=="C")
+update BD
+set cell_flag="S"
+where ("Primary_Phone_NBR"!="C") and ("Phone3_NBR"=="C")
+
+
+update BBB1
+set cell_flag="N"
+where ("Primary_Phone_NBR"!="C") and ("Phone3_NBR"!="C")
+
+update BBB1
+set cell_flag="N"
+where ("Primary_Phone_NBR"!="C") and ("Phone2_NBR"!="C")
