@@ -115,7 +115,7 @@ where ("Primary_Phone_NBR"=="C")
 update BBB1
 set cell_flag="S"
 where ("Primary_Phone_NBR"!="C") and ("Phone2_NBR"=="C")
-update BD
+update BBB1
 set cell_flag="S"
 where ("Primary_Phone_NBR"!="C") and ("Phone3_NBR"=="C")
 
